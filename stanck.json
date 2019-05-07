@@ -1314,7 +1314,7 @@
         "row": 2,
         "col": 10,
         "keycodes": [
-          { "id": "SFT_T()", "fields": [{ "id": "KC_UP", "fields": [] }] },
+          { "id": "KC_UP", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_PGUP", "fields": [] },
@@ -1352,7 +1352,7 @@
         "row": 2,
         "col": 11,
         "keycodes": [
-          { "id": "SFT_T()", "fields": [{ "id": "KC_SLSH", "fields": [] }] },
+          { "id": "KC_SLSH", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_QUES", "fields": [] },
@@ -1428,7 +1428,7 @@
         "row": 3,
         "col": 1,
         "keycodes": [
-          { "id": "LT()", "fields": [1, { "id": "KC_RBRC", "fields": [] }] },
+          { "id": "GUI_T()", "fields": [{ "id": "KC_RBRC", "fields": [] }] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_RCBR", "fields": [] },
@@ -1466,7 +1466,7 @@
         "row": 3,
         "col": 2,
         "keycodes": [
-          { "id": "KC_LALT", "fields": [] },
+          { "id": "KC_RALT", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
@@ -1542,7 +1542,7 @@
         "row": 3,
         "col": 4,
         "keycodes": [
-          { "id": "MO()", "fields": [3] },
+          { "id": "LT()", "fields": [3, { "id": "KC_TAB", "fields": [] }] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
@@ -1583,7 +1583,7 @@
           { "id": "KC_SPC", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_0", "fields": [] },
-          { "id": "KC_TAB", "fields": [] },
+          { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
@@ -1656,7 +1656,7 @@
         "row": 3,
         "col": 8,
         "keycodes": [
-          { "id": "KC_LGUI", "fields": [] },
+          { "id": "KC_RSFT", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
           { "id": "KC_TRNS", "fields": [] },
