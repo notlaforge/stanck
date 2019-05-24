@@ -4,21 +4,21 @@
 #define ____________ KC_TRNS
 #define __x__ KC_NO
 
+#define KC_ENTFN LT(1, KC_ENTER)
 #define KC_I_PAD LT(2, KC_I)
+#define KC_SYM   MO(3)
 #define KC_RESET LT(4, _____)
-#define KC_V_VOL LT(5,  KC_V)
-#define KC_C_CUR LT(6,  KC_C)
-#define KC_F1F12 MO(1)
-#define KC_FORTY MO(3)
+#define KC_V_VOL LT(5, KC_V)
+#define KC_C_CUR LT(6, KC_C)
 #define KC_SPACEBAR KC_SPACE
 #define KC_SLASH_SFT SFT_T(KC_SLSH)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KEYMAP(
-		KC_TAB,  KC_Q   , KC_W   , KC_E    , KC_R,     KC_T,  KC_Y, KC_U,   KC_I_PAD, KC_O,    KC_P,      KC_BSPC,
-		KC_ESC,  KC_A   , KC_S   , KC_D    , KC_F,     KC_G,  KC_H, KC_J,   KC_K   ,  KC_L,    KC_SCOLON, KC_QUOT,
+		KC_ESC,  KC_Q   , KC_W   , KC_E    , KC_R,     KC_T,  KC_Y, KC_U,   KC_I_PAD, KC_O,    KC_P,      KC_BSPC,
+		KC_TAB,  KC_A   , KC_S   , KC_D    , KC_F,     KC_G,  KC_H, KC_J,   KC_K   ,  KC_L,    KC_SCOLON, KC_QUOT,
    		KC_LSFT, KC_Z   , KC_X   , KC_C_CUR, KC_V_VOL, KC_B,  KC_N, KC_M,   KC_COMM,  KC_DOT,  KC_UP,     KC_SLASH_SFT,
-    	KC_DEL,  KC_LALT, KC_LGUI, KC_LCTL , KC_FORTY, KC_SPACEBAR, KC_ENT, KC_F1F12, KC_LEFT, KC_DOWN,   KC_RGHT
+    	KC_DEL,  KC_LALT, KC_LGUI, KC_LCTL , KC_SYM,   KC_SPACEBAR, KC_SYM, KC_ENTFN, KC_LEFT, KC_DOWN,   KC_RGHT
   	),
 
 	KEYMAP( // KC_F1F12
@@ -36,15 +36,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	),
 
 	KEYMAP( // KC_FORTY
-		_____, KC_GRV , __x__  , KC_EQL , KC_PERC, __x__  , __x__  , KC_UNDS, KC_PIPE, KC_LPRN, KC_RPRN, KC_RESET,
+	 KC_RESET, KC_GRV , __x__  , KC_EQL , KC_PERC, __x__  , __x__  , KC_UNDS, KC_PIPE, KC_LPRN, KC_RPRN, _____,
 		_____, KC_AT  , KC_DLR , KC_MINS, KC_LBRC, KC_BSLS, KC_HASH, KC_RBRC, KC_LCBR, KC_RCBR, KC_COLN, KC_DQUO,
 		_____, KC_AMPR, KC_ASTR, KC_CIRC,  __x__ , KC_EXLM, KC_TILD, KC_PLUS, KC_LABK, KC_RABK, KC_PGUP, KC_QUES,
 		_____,  _____ ,  _____ ,  _____ ,   ____________  ,  _____ ,  _____ ,  _____ , KC_HOME, KC_PGDN, KC_END
 	),
 
 	KEYMAP( // KC_RESET
-		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____,
 		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____, RESET,
+		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____,
 		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____,
 		_____, _____, _____, _____, _____, ____________, _____, _____, _____, _____, _____
 	),
