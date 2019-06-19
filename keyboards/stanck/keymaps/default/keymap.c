@@ -5,30 +5,31 @@
 #define ____________ KC_TRNS
 #define __x__ KC_NO
 
-enum LAYER { BASE, SYM, NUM, FN, RAT, MEDIA, FLASH };
+enum LAYER { BASE, SYM, NUM, FN, MEDIA, FLASH };
 
 #define KC_SEMIVOL LT(MEDIA, KC_SCOLON)
+#define ENTERSYM LT(SYM, KC_ENT)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KEYMAP(
- 		KC_ESC,  KC_Q   , KC_W   , KC_E,    KC_R,    KC_T,  KC_Y, KC_U,    LT(NUM, KC_I),   KC_O,    KC_P,       KC_BSPC,
- LT(FN, KC_TAB), KC_A   , KC_S   , KC_D,    KC_F,    KC_G,  KC_H, KC_J,    KC_K,            KC_L,    KC_SEMIVOL, KC_QUOT,
-   		KC_LSFT, KC_Z   , KC_X   , KC_C,    KC_V,    KC_B,  KC_N, KC_M,    KC_COMM,         KC_DOT,  KC_UP,      SFT_T(KC_SLSH),
-    	KC_DEL,  KC_LALT, KC_LGUI, KC_LCTL, MO(SYM), KC_SPACE   , MO(SYM), LT(RAT, KC_ENT), KC_LEFT, KC_DOWN,    KC_RGHT
+ 		KC_ESC,  KC_Q  , KC_W   , KC_E,    KC_R,    KC_T,  KC_Y, KC_U,     LT(NUM, KC_I), KC_O,    KC_P,       KC_BSPC,
+ 		KC_TAB,  KC_A  , KC_S   , KC_D,    KC_F,    KC_G,  KC_H, KC_J,     KC_K,          KC_L,    KC_SEMIVOL, KC_QUOT,
+   		KC_LSFT, KC_Z  , KC_X   , KC_C,    KC_V,    KC_B,  KC_N, KC_M,     KC_COMM,       KC_DOT,  KC_UP,      KC_RSFT,
+    	MO(FN),  KC_DEL, KC_LGUI, KC_LCTL, KC_LALT,  KC_SPACE  , ENTERSYM, KC_SLSH,       KC_LEFT, KC_DOWN,    KC_RGHT
   	),
 
 	KEYMAP( // KC_SYM
-	 LT(FLASH, _), KC_QUES, __x__  , KC_EXLM, KC_PERC, __x__  , __x__  , KC_UNDS, KC_PIPE, KC_LPRN, KC_RPRN, _____,
-		_____    , KC_AT  , KC_DLR , KC_MINS,  __x__ , __x__  , KC_HASH,  __x__ , KC_LCBR, KC_RCBR, KC_EQL,  KC_GRV,
-		_____    , KC_AMPR, KC_ASTR, KC_CIRC,  __x__ , __x__  , KC_TILD, KC_PLUS, KC_LBRC, KC_RBRC, KC_PGUP, KC_BSLS,
-		_____    ,  _____ ,  _____ ,  _____ ,   ____________  ,  _____ ,  _____ ,  _____ , KC_HOME, KC_PGDN, KC_END
+	 LT(FLASH, _),  __x__ , __x__  , KC_EXLM, KC_PERC, KC_TILD, __x__  , KC_UNDS, KC_PIPE, KC_LPRN, KC_RPRN, _____,
+		_____    , KC_AT  , KC_DLR , KC_MINS, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, KC_GRV , KC_EQL , KC_COLN, KC_DQUO,
+		_____    , KC_AMPR, KC_ASTR, KC_CIRC,  __x__ , KC_BSLS, KC_HASH, KC_PLUS, KC_LT  , KC_GT  , KC_PGUP, _____,
+		_____    ,  _____ ,  _____ ,  _____ ,  _____ ,  ____________   ,  _____ , KC_QUES, KC_HOME, KC_PGDN, KC_END
 	),
 
 	KEYMAP( // KC_I_PAD
 		_____, _____, _____, _____, _____, KC_7, KC_8, KC_9  , _____, _____, _____, _____,
 		_____, _____, _____, _____, _____, KC_4, KC_5, KC_6  , _____, _____, _____, _____,
 		_____, _____, _____, _____, _____, KC_1, KC_2, KC_3  , _____, _____, _____, _____,
-		_____, _____, _____, _____, _____, KC_0,       KC_ENT, _____, _____, _____, _____
+		_____, _____, _____, _____, _____, KC_0,       _____ , _____, _____, _____, _____
 	),
 
 	KEYMAP( // KC_F1F12
@@ -36,13 +37,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 		_____, _____, _____, _____, _____, _____, _____, _____, _____,  _____,  _____,  _____,
 		_____, _____, _____, _____, _____, _____, _____, _____, _____,  _____,  _____,  _____,
 		_____, _____, _____, _____, _____, ____________, _____, _____,  _____,  _____,  _____
-	),
-
-	KEYMAP(
-		_____, _____, _____, _____, _____, _____, _____, _____, _____,      _____, _____     , _____,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____,      _____, _____     , _____,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____,     KC_BTN1 , KC_MS_UP  , KC_BTN2,
-		_____, _____, _____, _____, _____, ____________, _____, _____, KC_MS_LEFT, KC_MS_DOWN, KC_MS_RIGHT
 	),
 
 	KEYMAP( // KC_V_VOL
@@ -60,20 +54,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	)
 };
 
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) {
-	return MACRO_NONE;
-}
 
-bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-	return true;
-}
-
-void led_set_user(uint8_t usb_led) {
-}
-
-
-void matrix_init_user(void) {
-}
-
-void matrix_scan_user(void) {
-}
+const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt) { return MACRO_NONE; }
+bool process_record_user(uint16_t keycode, keyrecord_t *record) { return true; }
+void led_set_user(uint8_t usb_led) {}
+void matrix_init_user(void) {}
+void matrix_scan_user(void) {}
