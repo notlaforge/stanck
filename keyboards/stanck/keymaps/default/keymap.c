@@ -3,54 +3,57 @@
 #define _ KC_TRNS
 #define _____ KC_TRNS
 #define ____________ KC_TRNS
-#define __x__ KC_NO
 
-enum LAYER { BASE, SYM, NUM, FN, MEDIA, FLASH };
+#define ___x___ KC_NO
 
-#define KC_SEMIVOL LT(MEDIA, KC_SCOLON)
-#define ENTERSYM LT(SYM, KC_ENT)
+enum LAYER { BASE, SYM, FN, NUM, MEDIA, FLASH };
+
+#define LT_VOL LT(MEDIA, KC_SCOLON)
+#define LT_SYM LT(SYM, KC_ENT)
+#define LT_NUM LT(NUM, KC_I)
+#define LT_FSH LT(FLASH, _)
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 	KEYMAP(
- 		KC_ESC,  KC_Q  , KC_W   , KC_E,    KC_R,    KC_T,  KC_Y, KC_U,     LT(NUM, KC_I), KC_O,    KC_P,       KC_BSPC,
- 		KC_TAB,  KC_A  , KC_S   , KC_D,    KC_F,    KC_G,  KC_H, KC_J,     KC_K,          KC_L,    KC_SEMIVOL, KC_QUOT,
-   		KC_LSFT, KC_Z  , KC_X   , KC_C,    KC_V,    KC_B,  KC_N, KC_M,     KC_COMM,       KC_DOT,  KC_UP,      KC_RSFT,
-    	MO(FN),  KC_DEL, KC_LGUI, KC_LCTL, KC_LALT,  KC_SPACE  , ENTERSYM, KC_SLSH,       KC_LEFT, KC_DOWN,    KC_RGHT
-  	),
-
-	KEYMAP( // KC_SYM
-	 LT(FLASH, _),  __x__ , __x__  , KC_EXLM, KC_PERC, KC_TILD, __x__  , KC_UNDS, KC_PIPE, KC_LPRN, KC_RPRN, _____,
-		_____    , KC_AT  , KC_DLR , KC_MINS, KC_LCBR, KC_LBRC, KC_RBRC, KC_RCBR, KC_GRV , KC_EQL , KC_COLN, KC_DQUO,
-		_____    , KC_AMPR, KC_ASTR, KC_CIRC,  __x__ , KC_BSLS, KC_HASH, KC_PLUS, KC_LT  , KC_GT  , KC_PGUP, _____,
-		_____    ,  _____ ,  _____ ,  _____ ,  _____ ,  ____________   ,  _____ , KC_QUES, KC_HOME, KC_PGDN, KC_END
+		KC_ESC , KC_Q  , KC_W   , KC_E   , KC_R   , KC_T, KC_Y, KC_U  , LT_NUM , KC_O   , KC_P   , KC_BSPC,
+		KC_TAB , KC_A  , KC_S   , KC_D   , KC_F   , KC_G, KC_H, KC_J  , KC_K   , KC_L   , LT_VOL , KC_QUOT,
+		KC_LSFT, KC_Z  , KC_X   , KC_C   , KC_V   , KC_B, KC_N, KC_M  , KC_COMM, KC_DOT , KC_UP  , KC_RSFT,
+		MO(FN) , KC_DEL, KC_LGUI, KC_LALT, KC_LCTL, KC_SPACE  , LT_SYM, KC_SLSH, KC_LEFT, KC_DOWN, KC_RGHT
 	),
 
-	KEYMAP( // KC_I_PAD
-		_____, _____, _____, _____, _____, KC_7, KC_8, KC_9  , _____, _____, _____, _____,
-		_____, _____, _____, _____, _____, KC_4, KC_5, KC_6  , _____, _____, _____, _____,
-		_____, _____, _____, _____, _____, KC_1, KC_2, KC_3  , _____, _____, _____, _____,
-		_____, _____, _____, _____, _____, KC_0,       _____ , _____, _____, _____, _____
+	KEYMAP(
+		LT_FSH, KC_LCBR, KC_RCBR, KC_EXLM, KC_PERC, KC_TILD, ___x___, KC_UNDS, KC_PIPE, KC_LPRN, KC_RPRN, _____,
+		_____ , KC_AT  , KC_DLR , KC_MINS, ___x___, KC_LBRC, KC_RBRC, ___x___, KC_GRV , KC_EQL , KC_COLN, KC_DQUO,
+		_____ , KC_AMPR, KC_ASTR, KC_CIRC, ___x___, KC_BSLS, KC_HASH, KC_PLUS, KC_LT  , KC_GT  , KC_PGUP, _____,
+		_____ , _____  , _____  , _____  , _____  ,  ____________   ,  _____ , KC_QUES, KC_HOME, KC_PGDN, KC_END
 	),
 
-	KEYMAP( // KC_F1F12
+	KEYMAP(
 		KC_F1, KC_F2, KC_F3, KC_F4, KC_F5, KC_F6, KC_F7, KC_F8, KC_F9, KC_F10, KC_F11, KC_F12,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____,  _____,  _____,  _____,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____,  _____,  _____,  _____,
-		_____, _____, _____, _____, _____, ____________, _____, _____,  _____,  _____,  _____
+		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____ , _____ , _____,
+		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____ , _____ , _____,
+		_____, _____, _____, _____, _____, ____________, _____, _____, _____ , _____ , _____
 	),
 
-	KEYMAP( // KC_V_VOL
-		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____,  _____ , _____,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____,  _____ , KC_MUTE,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, KC_VOLU, _____,
-		_____, _____, _____, _____, _____, ____________, _____, _____, _____, KC_VOLD, _____
+	KEYMAP(
+		_, _, _, _, _, KC_7, KC_8, KC_9, _, _, _, _,
+		_, _, _, _, _, KC_4, KC_5, KC_6, _, _, _, _,
+		_, _, _, _, _, KC_1, KC_2, KC_3, _, _, _, _,
+		_, _, _, _, _,    KC_0,   _____, _, _, _, _
 	),
 
-	KEYMAP( // KC_RESET
-		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____, RESET,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____,
-		_____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____, _____,
-		_____, _____, _____, _____, _____, ____________, _____, _____, _____, _____, _____
+	KEYMAP(
+		_, _, _, _, _, _,  _, _, _, _, _____  , _____,
+		_, _, _, _, _, _,  _, _, _, _, _____  , KC_MUTE,
+		_, _, _, _, _, _,  _, _, _, _, KC_VOLU, _____,
+		_, _, _, _, _, _____, _, _, _, KC_VOLD, _____
+	),
+
+	KEYMAP(
+		_, _, _, _, _, _,  _, _, _, _, _, RESET,
+		_, _, _, _, _, _,  _, _, _, _, _, _____,
+		_, _, _, _, _, _,  _, _, _, _, _, _____,
+		_, _, _, _, _, _____, _, _, _, _, _____
 	)
 };
 
